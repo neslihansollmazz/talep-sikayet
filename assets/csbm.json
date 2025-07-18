@@ -1,0 +1,219 @@
+[
+  {
+    "r": "75. Yıl Mahallesi",
+    "m": [
+      { "name": "İstiklal Caddesi", "type": "Cadde" },
+      { "name": "Cumhuriyet Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Akarca Mahallesi",
+    "m": [
+      { "name": "Barış Caddesi", "type": "Cadde" },
+      { "name": "Birlik Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Akdeniz Mahallesi",
+    "m": [
+      { "name": "Akdeniz Bulvarı", "type": "Bulvar" },
+      { "name": "Güneş Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Anayurt Mahallesi",
+    "m": [
+      { "name": "Anayurt Caddesi", "type": "Cadde" },
+      { "name": "Sevgi Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Atatürk Mahallesi",
+    "m": [
+      { "name": "Atatürk Caddesi", "type": "Cadde" },
+      { "name": "Zafer Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Cumhuriyet Mahallesi",
+    "m": [
+      { "name": "Cumhuriyet Bulvarı", "type": "Bulvar" },
+      { "name": "Demokrasi Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Davultepe Mahallesi",
+    "m": [
+      { "name": "Sahil Caddesi", "type": "Cadde" },
+      { "name": "Plaj Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Deniz Mahallesi",
+    "m": [
+      { "name": "Deniz Caddesi", "type": "Cadde" },
+      { "name": "Martı Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Fatih Mahallesi",
+    "m": [
+      { "name": "Fatih Caddesi", "type": "Cadde" },
+      { "name": "Osmanlı Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Hal Mahallesi",
+    "m": [
+      { "name": "Hal Caddesi", "type": "Cadde" },
+      { "name": "Meyve Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Hürriyet Mahallesi",
+    "m": [
+      { "name": "Hürriyet Caddesi", "type": "Cadde" },
+      { "name": "Özgürlük Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "İnönü Mahallesi",
+    "m": [
+      { "name": "İnönü Bulvarı", "type": "Bulvar" },
+      { "name": "Kurtuluş Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Kale Mahallesi",
+    "m": [
+      { "name": "Kale Caddesi", "type": "Cadde" },
+      { "name": "Surlar Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Kuyuluk Mahallesi",
+    "m": [
+      { "name": "Kuyuluk Caddesi", "type": "Cadde" },
+      { "name": "Çeşme Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Merkez Mahallesi",
+    "m": [
+      { "name": "Merkez Caddesi", "type": "Cadde" },
+      { "name": "Pazar Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Seymenli Mahallesi",
+    "m": [
+      { "name": "Seymenli Yolu", "type": "Cadde" },
+      { "name": "Köy Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Tece Mahallesi",
+    "m": [
+      { "name": "Tece Bulvarı", "type": "Bulvar" },
+      { "name": "Deniz Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Viranşehir Mahallesi",
+    "m": [
+      { "name": "Viranşehir Caddesi", "type": "Cadde" },
+      { "name": "Tarihi Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Yenimahalle",
+    "m": [
+      { "name": "Yeni Caddesi", "type": "Cadde" },
+      { "name": "Umut Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Yenişehir Mahallesi",
+    "m": [
+      { "name": "Yenişehir Bulvarı", "type": "Bulvar" },
+      { "name": "Gelişim Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Zeytinli Mahallesi",
+    "m": [
+      { "name": "Zeytinli Yolu", "type": "Cadde" },
+      { "name": "Bahçe Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Çevlik Mahallesi",
+    "m": [
+      { "name": "Çevlik Caddesi", "type": "Cadde" },
+      { "name": "Kumsal Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Bozön Mahallesi",
+    "m": [
+      { "name": "Bozön Yolu", "type": "Cadde" },
+      { "name": "Zambak Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Turunçlu Mahallesi",
+    "m": [
+      { "name": "Turunçlu Yolu", "type": "Cadde" },
+      { "name": "Narenciye Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Kuzucubelen Mahallesi",
+    "m": [
+      { "name": "Kuzucubelen Yolu", "type": "Cadde" },
+      { "name": "Çamlık Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Fındıkpınarı Mahallesi",
+    "m": [
+      { "name": "Fındıkpınarı Yolu", "type": "Cadde" },
+      { "name": "Serin Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Sarılar Mahallesi",
+    "m": [
+      { "name": "Sarılar Yolu", "type": "Cadde" },
+      { "name": "Altın Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Çamlıca Mahallesi",
+    "m": [
+      { "name": "Çamlıca Caddesi", "type": "Cadde" },
+      { "name": "Yeşil Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Yeniköy Mahallesi",
+    "m": [
+      { "name": "Yeniköy Yolu", "type": "Cadde" },
+      { "name": "Köy İçi Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Eğriçam Mahallesi",
+    "m": [
+      { "name": "Eğriçam Caddesi", "type": "Cadde" },
+      { "name": "Dönence Sokak", "type": "Sokak" }
+    ]
+  },
+  {
+    "r": "Çankaya Mahallesi",
+    "m": [
+      { "name": "Çankaya Caddesi", "type": "Cadde" },
+      { "name": "Vadi Sokak", "type": "Sokak" }
+    ]
+  }
+]
