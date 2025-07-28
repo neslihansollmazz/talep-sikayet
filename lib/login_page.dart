@@ -86,6 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [_registerButton(), _forgotPasswordButton()],
+
                 ),
               ],
             ),
@@ -171,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
         final user = jsonEncode(data["user"]);
         final token = data["token"] ?? "";
 
-        // 🌟 Kullanıcıyı hatırlamak için token ve rol kaydet
+      
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('token', token);
         await prefs.setString('user', jsonEncode(user));

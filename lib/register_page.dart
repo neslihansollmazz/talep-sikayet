@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../utils/email_verification_page.dart'; // EmailVerificationPage buradan import ediliyor
-import '../complaint_page.dart';
+import '../utils/email_verification_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -19,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
   String phone = '';
   String password = '';
 
-  Future<void> register() async {
+  Future<void> performRegister() async {
     final url = Uri.parse("http://10.0.2.2:3000/api/register");
 
     final requestBody = json.encode({
@@ -29,7 +28,6 @@ class _RegisterPageState extends State<RegisterPage> {
       "telefon": phone,
       "sifre": password,
     });
-    print('Gönderilen JSON: $requestBody');
 
     final response = await http.post(
       url,
@@ -37,50 +35,56 @@ class _RegisterPageState extends State<RegisterPage> {
       body: requestBody,
     );
 
-    print('Sunucudan gelen cevap: ${response.body}');
-
     final res = json.decode(response.body);
 
     if (res["status"] == "success") {
-      // Kayıt başarılı ise mail gönderme isteği yap
-      final mailResponse = await http.post(
-        Uri.parse('http://10.0.2.2:3000/api/send-code'),
-        headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'email': email}),
-      );
-
-      if (mailResponse.statusCode == 200) {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text("Kayıt başarılı. Doğrulama kodu gönderildi."),
-          ),
-        );
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (_) => EmailVerificationPage(
-              email: email,
-              onCodeSubmitted: (code) {
-                Navigator.pushReplacementNamed(context, '/anasayfa');
-              },
-            ),
-          ),
-        );
-      } else {
-        if (!mounted) return;
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Doğrulama kodu gönderilemedi.")),
-        );
-      }
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, "/anasayfa");
     } else {
       final errorMessage =
           res["message"] ?? "Sunucudan bir hata yanıtı alınamadı.";
-      if (!mounted) return;
-      ScaffoldMessenger.of(
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Hata: $errorMessage")),
+      );
+    }
+  }
+
+  Future<void> sendVerificationCodeAndNavigate() async {
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:3000/api/email-verification/send-code'),
+      headers: {'Content-Type': 'application/json'},
+      body: jsonEncode({'email': email}),
+    );
+
+    if (response.statusCode == 200) {
+      Navigator.push(
         context,
-      ).showSnackBar(SnackBar(content: Text("Hata: $errorMessage")));
+        MaterialPageRoute(
+          builder: (_) => EmailVerificationPage(
+            email: email,
+            onCodeSubmitted: (code) async {
+              final verifyResponse = await http.post(
+                Uri.parse('http://10.0.2.2:3000/api/verify-code'),
+                headers: {'Content-Type': 'application/json'},
+                body: jsonEncode({'email': email, 'code': code}),
+              );
+
+              if (verifyResponse.statusCode == 200) {
+                await performRegister(); // Kod doğrulandıysa kayıt yap
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                      content: Text("Kod yanlış veya süresi dolmuş.")),
+                );
+              }
+            },
+          ),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Doğrulama kodu gönderilemedi.")),
+      );
     }
   }
 
@@ -174,7 +178,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                      register();
+                      sendVerificationCodeAndNavigate();
                     }
                   },
                   style: ElevatedButton.styleFrom(

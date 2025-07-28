@@ -95,6 +95,7 @@ class _AnasayfaPageState extends State<AnasayfaPage> {
             'tip': item['tur'] ?? 'Talep',
             'konu': item['konu'] ?? '',
             'aciklama': item['icerik'] ?? '',
+            'mahalle': item['mahalle'] ?? '',
           },
         ),
       ),
@@ -275,3 +276,5 @@ class _AnasayfaPageState extends State<AnasayfaPage> {
     );
   }
 }
+
+

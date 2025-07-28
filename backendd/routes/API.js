@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
@@ -44,22 +45,22 @@ router.post('/register', (req, res) => {
     const transporter = require('nodemailer').createTransport({
       service: 'gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASS
       }
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.MAIL_USER,
       to: eposta,
-      subject: 'MuZyu Doğrulama Kodu',
-      text: `Merhaba ${tam_adi},\n\nDoğrulama kodunuz: ${verificationCode}\n\nMuZyu'yu kullandığınız için teşekkürler.`
+      subject: ' Doğrulama Kodu',
+      text: `Merhaba ${tam_adi},\n\nDoğrulama kodunuz: ${verificationCode}\n\nteşekkürler.`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.error('Mail gönderme hatası:', error);
-        return res.status(500).json({ status: "error", message: "Mail gönderilemedi. Kayıt yapılmadı." });
+        return res.status(500).json({ status: "error", message: "Mail gönderilemedi. Kayıt yapılmadı.",hata:error });
       }
 
       bcrypt.hash(sifre, 10, (err, hash) => {

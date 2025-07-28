@@ -11,6 +11,8 @@ class Complaint {
   final String aciklama;
   bool tamamlandi;
   final String departman;
+  final String adres;
+
 
   Complaint({
     required this.id,
@@ -19,6 +21,7 @@ class Complaint {
     required this.aciklama,
     required this.tamamlandi,
     required this.departman,
+    required this.adres,
   });
 
   factory Complaint.fromJson(Map<String, dynamic> json) {
@@ -27,8 +30,9 @@ class Complaint {
       baslik: json['basvuru_tipi'] ?? '', 
       aciklama: json['icerik'] ?? '',
       konu: (json['konu'] ?? '').toString(),
-      tamamlandi: json['basvuru_durumu'] == 'tamamlandi', // <-- burası
+      tamamlandi: json['basvuru_durumu'] == 'tamamlandi', 
       departman: json['departman'] ?? '',
+       adres: json['adres'] ?? '',
     );
   }
 
@@ -167,13 +171,18 @@ void _showComplaintDetails(Complaint complaint) { //yenı ekledım
             
               Text("Açıklama: ${complaint.aciklama}"),
               const SizedBox(height: 10),
+              Text("Adres: ${complaint.adres}"),
+              
             ],
           ),
           actions: [
-            TextButton(
-              child: const Text('Kapat'),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+          TextButton(
+  child: const Text('Kapat'),
+  onPressed: () => Navigator.of(context).pop(),
+  style: TextButton.styleFrom(
+    foregroundColor: const Color.fromARGB(255, 3, 0, 0), // 🔴 Yazı rengi kırmızı olur
+  ),
+),
           ],
         );
       },
@@ -308,6 +317,8 @@ void _showComplaintDetails(Complaint complaint) { //yenı ekledım
                             children: [
                               Text("Konu: ${complaint.konu}"),
                               Text("Açıklama: ${complaint.aciklama}"),
+                               const SizedBox(height: 10),
+                             
                             ],
                           ),
                             onTap: () => _showComplaintDetails(complaint), // yenı ekledım
@@ -317,11 +328,12 @@ void _showComplaintDetails(Complaint complaint) { //yenı ekledım
                                     color: Colors.green,
                                   )
                                 : ElevatedButton(
-                                    child: const Text("Tamamlandı"),
+                                    child: const Text("Tamamlanmadi"),
                                     onPressed: () =>
                                         markAsCompleted(complaint.id),
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.grey[700],
+                                      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+                                      foregroundColor: const Color.fromARGB(210, 233, 28, 28)
                                     ),
                                   ),
                           ),

@@ -40,7 +40,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
     setState(() => _isSubmitting = true);
 
     final response = await http.post(
-      Uri.parse('http://10.0.2.2:3000/api/verify-code'),
+      Uri.parse('http://10.0.2.2:3000/api/email-verification/verify-code'),
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'email': widget.email, 'code': code}),
     );
@@ -51,7 +51,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
         context,
       ).showSnackBar(const SnackBar(content: Text('Doğrulama başarılı!')));
       widget.onCodeSubmitted(code);
-      Navigator.pushReplacementNamed(context, '/anasayfa');
+      Navigator.pushReplacementNamed(context, '/login');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Kod yanlış veya süresi dolmuş')),
@@ -141,4 +141,4 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
       ),
     );
   }
-}
+} 

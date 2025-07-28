@@ -12,10 +12,12 @@ void main() async {
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: (token != null && rol != null)
-        ? (rol == 'admin'
-            ? EmployeesPage()
-            : AnasayfaPage(token: token))
-        : const LoginPage(),
+    initialRoute: (token != null && rol != null) ? '/home' : '/login',
+    routes: {
+      '/login': (context) => const LoginPage(),
+      '/home': (context) => (rol == 'admin')
+          ? EmployeesPage()
+          : AnasayfaPage(token: token ?? ''),
+    },
   ));
 }
